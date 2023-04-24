@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Receipt</title>
+	<script>
+		// JavaScript code for current date and time
+		function getCurrentDateTime() {
+			var now = new Date();
+			var date = now.toLocaleDateString();
+			var time = now.toLocaleTimeString();
+			return date + ' ' + time;
+		}
+	</script>
+</head>
+<body>
+    <img src="#" alt="Company Logo" id="company-logo">
+	<h1> HudoCafe </h1>
+	<hr>
+	<p>Date and Time: <span id="datetime"></span></p>
+	<p>Receiver Name: <input type="text" id="receiver-name"></p>
+	<p>Account No.: <input type="text" id="account-no"></p>
+	<p>Bank Name: <input type="text" id="bank-name"></p>
+	<p>Amount: <input type="text" id="amount"></p>
+	<p>Mobile: <input type="text" id="mobile"></p>
+	<p>Prepared By: <input type="text" id="prepared-by"></p>
+	<button onclick="printReceipt()">Print Receipt</button>
+	<script>
+		// JavaScript code to print the receipt
+		function printReceipt() {
+			var dateTime = getCurrentDateTime();
+			var receiverName = document.getElementById('receiver-name').value;
+			var accountNo = document.getElementById('account-no').value;
+			var bankName = document.getElementById('bank-name').value;
+			var amount = document.getElementById('amount').value;
+			var mobile = document.getElementById('mobile').value;
+			var preparedBy = document.getElementById('prepared-by').value;
+			var receiptContent = 'COMPANY NAME\n\n';
+			receiptContent += 'Date and Time: ' + dateTime + '\n';
+			receiptContent += 'Receiver Name: ' + receiverName + '\n';
+			receiptContent += 'Account No.: ' + accountNo + '\n';
+			receiptContent += 'Bank Name: ' + bankName + '\n';
+			receiptContent += 'Amount: ' + amount + '\n';
+			receiptContent += 'Mobile: ' + mobile + '\n';
+			receiptContent += 'Prepared By: ' + preparedBy + '\n';
+			alert(receiptContent);
+			// code to print the receipt
+			window.print();
+		}
+		// JavaScript code to set the current date and time in the datetime field
+		document.getElementById('datetime').innerHTML = getCurrentDateTime();
+	</script>
+</body>
+</html>
